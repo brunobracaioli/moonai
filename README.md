@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo of Moon AI](.moonai_logo.png)
+![Logo of Moon AI](./moonai_logo.png)
 
 # **Moon AI**
 
@@ -442,3 +442,6 @@ A: You can find various real-life examples in the [moonai-examples repository](h
 
 ### Q: How can I contribute to moonai?
 A: Contributions are welcome! You can fork the repository, create a new branch for your feature, add your improvement, and send a pull request. Check the Contribution section in the README for more details.
+
+# moonai
+Moon AI

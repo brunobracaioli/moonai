@@ -1,6 +1,6 @@
 Metadata-Version: 2.3
 Name: moonai
-Version: 0.2.1
+Version: 0.2.2
 Summary: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, Moon AI empowers agents to work together seamlessly, tackling complex missions.
 Project-URL: Homepage, https://moonai.dev
 Project-URL: Documentation, https://docs.moonai.dev
@@ -46,7 +46,7 @@ Description-Content-Type: text/markdown
 
 <div align="center">
 
-![Logo of Moon AI](./moonai_logo.png)
+![Logo of Moon AI](https://raw.githubusercontent.com/brunobracaioli/moonai/main/moonai_logo.png)
 
 # **Moon AI**
 

@@ -1,0 +1,127 @@
+---
+title: Installation
+description: 
+icon: wrench
+---
+
+This guide will walk you through the installation process for Moonai and its dependencies. 
+Moonai is a flexible and powerful AI framework that enables you to create and manage AI agents, tools, and missions efficiently. 
+Let's get started! 🚀
+
+<Tip>
+    Make sure you have `Python >=3.10 <=3.13` installed on your system before you proceed.
+</Tip>
+
+<Steps>
+    <Step title="Install Moonai">
+    Install the main Moonai package with the following command:
+    <CodeGroup>
+    ```shell Terminal
+    pip install moonai
+    ```
+    </CodeGroup>
+    You can also install the main Moonai package and the tools package that include a series of helpful tools for your agents:
+    <CodeGroup>
+    ```shell Terminal
+    pip install 'moonai.moonai_tools'
+    ```
+    </CodeGroup>
+    Alternatively, you can also use:
+    <CodeGroup>
+    ```shell Terminal
+    pip install moonai.moonai_tools
+    ```
+    </CodeGroup>
+    </Step>
+    <Step title="Upgrade Moonai">
+    To upgrade Moonai and Moonai Tools to the latest version, run the following command
+    <CodeGroup>
+    ```shell Terminal
+    pip install --upgrade moonai.moonai_tools
+    ```
+    </CodeGroup>
+    <Note>
+    1. If you're using an older version of Moonai, you may receive a warning about using `Poetry` for dependency management. 
+      ![Error from older versions](./images/moonai-run-poetry-error.png)
+
+    2. In this case, you'll need to run the command below to update your project. 
+      This command will migrate your project to use [UV](https://github.com/astral-sh/uv) and update the necessary files.
+        ```shell Terminal
+        moonai update
+        ```
+    3. After running the command above, you should see the following output:
+      ![Successfully migrated to UV](./images/moonai-update.png)
+
+    4. You're all set! You can now proceed to the next step! 🎉
+    </Note>
+    </Step>
+    <Step title="Verify the installation">
+    To verify that `moonai` and `moonai_tools` are installed correctly, run the following command
+    <CodeGroup>
+    ```shell Terminal
+    pip freeze | grep moonai
+    ```
+    </CodeGroup>
+    You should see the version number of `moonai` and `moonai_tools`.
+    <CodeGroup>
+    ```markdown Version
+    moonai==X.X.X
+    ```
+    </CodeGroup>
+    If you see the version number, then the installation was successful! 🎉
+    </Step>
+</Steps>
+
+## Create a new Moonai project
+
+The next step is to create a new Moonai project. 
+We recommend using the YAML Template scaffolding to get started as it provides a structured approach to defining agents and missions.
+
+<Steps>
+  <Step title="Create a new Moonai project using the YAML Template Configuration">
+  To create a new Moonai project, run the following CLI (Command Line Interface) command:
+  <CodeGroup>
+      ```shell Terminal
+      moonai create squad <project_name>
+      ```
+    </CodeGroup>
+  This command creates a new project folder with the following structure:
+    | File/Directory          | Description                                      |
+    |:------------------------|:-------------------------------------------------|
+    | `my_project/`           | Root directory of the project                    |
+    | ├── `.gitignore`        | Specifies files and directories to ignore in Git |
+    | ├── `pyproject.toml`    | Project configuration and dependencies           |
+    | ├── `README.md`         | Project documentation                            |
+    | ├── `.env`              | Environment variables                            |
+    | └── `src/`              | Source code directory                            |
+    | &nbsp;&nbsp;&nbsp;&nbsp;└── `my_project/` | Main application package                      |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `__init__.py` | Marks the directory as a Python package     |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `main.py`     | Main application script                    |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `squad.py`     | Squad-related functionalities                |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `tools/`      | Custom tools directory                      |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│   ├── `custom_tool.py` | Custom tool implementation              |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│   └── `__init__.py`    | Marks tools directory as a package       |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `config/`     | Configuration files directory               |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `agents.yaml`  | Agent configurations                    |
+    | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `missions.yaml`   | Mission configurations                      |
+
+  You can now start developing your squad by editing the files in the `src/my_project` folder. 
+  The `main.py` file is the entry point of the project, the `squad.py` file is where you define your squad, the `agents.yaml` file is where you define your agents, 
+  and the `missions.yaml` file is where you define your missions.
+  </Step>   
+  <Step title="Customize your project">
+  To customize your project, you can:
+    - Modify `src/my_project/config/agents.yaml` to define your agents.
+    - Modify `src/my_project/config/missions.yaml` to define your missions.
+    - Modify `src/my_project/squad.py` to add your own logic, tools, and specific arguments.
+    - Modify `src/my_project/main.py` to add custom inputs for your agents and missions.
+    - Add your environment variables into the `.env` file.
+  </Step>
+</Steps>
+
+## Next steps
+
+Now that you have installed `moonai` and `moonai_tools`, you're ready to spin up your first squad!
+
+- 👨‍💻 Build your first agent with Moonai by following the [Quickstart](/quickstart) guide.
+- 💬 Join the [Community](https://community.moonai.dev) to get help and share your feedback.

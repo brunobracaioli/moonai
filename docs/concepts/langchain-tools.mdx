@@ -1,0 +1,45 @@
+---
+title: Using LangChain Tools
+description: Learn how to integrate LangChain tools with Moonai agents to enhance search-based queries and more.
+icon: link
+---
+
+## Using LangChain Tools
+
+<Info>
+    Moonai seamlessly integrates with LangChain’s comprehensive [list of tools](https://python.langchain.com/docs/integrations/tools/), all of which can be used with Moonai.
+</Info>
+
+```python Code
+import os
+from moonai import Agent
+from langchain.agents import Tool
+from langchain.utilities import GoogleSerperAPIWrapper
+
+# Setup API keys
+os.environ["SERPER_API_KEY"] = "Your Key"
+
+search = GoogleSerperAPIWrapper()
+
+# Create and assign the search tool to an agent
+serper_tool = Tool(
+  name="Intermediate Answer",
+  func=search.run,
+  description="Useful for search-based queries",
+)
+
+agent = Agent(
+  role='Research Analyst',
+  goal='Provide up-to-date market analysis',
+  backstory='An expert analyst with a keen eye for market trends.',
+  tools=[serper_tool]
+)
+
+# rest of the code ...
+```
+
+## Conclusion
+
+Tools are pivotal in extending the capabilities of Moonai agents, enabling them to undertake a broad spectrum of missions and collaborate effectively. 
+When building solutions with Moonai, leverage both custom and existing tools to empower your agents and enhance the AI ecosystem. Consider utilizing error handling, caching mechanisms, 
+and the flexibility of tool arguments to optimize your agents' performance and capabilities.

@@ -1,0 +1,67 @@
+---
+title: Processes
+description: Detailed guide on workflow management through processes in Moonai, with updated implementation details.
+icon: bars-staggered
+---
+
+## Understanding Processes
+<Tip>
+  Processes orchestrate the execution of missions by agents, akin to project management in human teams. 
+  These processes ensure missions are distributed and executed efficiently, in alignment with a predefined strategy.
+</Tip>
+
+## Process Implementations
+
+- **Sequential**: Executes missions sequentially, ensuring missions are completed in an orderly progression.
+- **Hierarchical**: Organizes missions in a managerial hierarchy, where missions are delegated and executed based on a structured chain of command. A manager language model (`manager_llm`) or a custom manager agent (`manager_agent`) must be specified in the squad to enable the hierarchical process, facilitating the creation and management of missions by the manager.
+- **Consensual Process (Planned)**: Aiming for collaborative decision-making among agents on mission execution, this process type introduces a democratic approach to mission management within Moonai. It is planned for future development and is not currently implemented in the codebase.
+
+## The Role of Processes in Teamwork
+Processes enable individual agents to operate as a cohesive unit, streamlining their efforts to achieve common objectives with efficiency and coherence.
+
+## Assigning Processes to a Squad
+To assign a process to a squad, specify the process type upon squad creation to set the execution strategy. For a hierarchical process, ensure to define `manager_llm` or `manager_agent` for the manager agent.
+
+```python
+from moonai import Squad
+from moonai.process import Process
+from langchain_openai import ChatOpenAI
+
+# Example: Creating a squad with a sequential process
+squad = Squad(
+    agents=my_agents,
+    missions=my_missions,
+    process=Process.sequential
+)
+
+# Example: Creating a squad with a hierarchical process
+# Ensure to provide a manager_llm or manager_agent
+squad = Squad(
+    agents=my_agents,
+    missions=my_missions,
+    process=Process.hierarchical,
+    manager_llm=ChatOpenAI(model="gpt-4")
+    # or
+    # manager_agent=my_manager_agent
+)
+```
+**Note:** Ensure `my_agents` and `my_missions` are defined prior to creating a `Squad` object, and for the hierarchical process, either `manager_llm` or `manager_agent` is also required.
+
+## Sequential Process
+
+This method mirrors dynamic team workflows, progressing through missions in a thoughtful and systematic manner. Mission execution follows the predefined order in the mission list, with the output of one mission serving as context for the next.
+
+To customize mission context, utilize the `context` parameter in the `Mission` class to specify outputs that should be used as context for subsequent missions.
+
+## Hierarchical Process
+
+Emulates a corporate hierarchy, Moonai allows specifying a custom manager agent or automatically creates one, requiring the specification of a manager language model (`manager_llm`). This agent oversees mission execution, including planning, delegation, and validation. missions are not pre-assigned; the manager allocates missions to agents based on their capabilities, reviews outputs, and assesses mission completion.
+
+## Process Class: Detailed Overview
+
+The `Process` class is implemented as an enumeration (`Enum`), ensuring type safety and restricting process values to the defined types (`sequential`, `hierarchical`). The consensual process is planned for future inclusion, emphasizing our commitment to continuous development and innovation.
+
+## Conclusion
+
+The structured collaboration facilitated by processes within Moonai is crucial for enabling systematic teamwork among agents. 
+This documentation has been updated to reflect the latest features, enhancements, and the planned integration of the Consensual Process, ensuring users have access to the most current and comprehensive information.

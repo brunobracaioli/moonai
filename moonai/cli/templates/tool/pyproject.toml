@@ -1,0 +1,10 @@
+[project]
+name = "{{folder_name}}"
+version = "0.1.0"
+description = "Power up your squads with {{folder_name}}"
+readme = "README.md"
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "moonai.moonai_tools>=0.83.0"
+]
+

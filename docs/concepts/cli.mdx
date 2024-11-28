@@ -1,0 +1,179 @@
+---
+title: CLI
+description: Learn how to use the Moon AI CLI to interact with Moon AI.
+icon: terminal
+---
+
+# Moon AI CLI Documentation
+
+The Moon AI CLI provides a set of commands to interact with Moon AI, allowing you to create, train, run, and manage squads & flows.
+
+## Installation
+
+To use the Moon AI CLI, make sure you have Moon AI installed:
+
+```shell
+pip install Moon AI
+```
+
+## Basic Usage
+
+The basic structure of a Moon AI CLI command is:
+
+```shell
+Moon AI [COMMAND] [OPTIONS] [ARGUMENTS]
+```
+
+## Available Commands
+
+### 1. Create
+
+Create a new squad or pipeline.
+
+```shell
+Moon AI create [OPTIONS] TYPE NAME
+```
+
+- `TYPE`: Choose between "squad" or "pipeline"
+- `NAME`: Name of the squad or pipeline
+- `--router`: (Optional) Create a pipeline with router functionality
+
+Example:
+```shell
+Moon AI create squad my_new_squad
+Moon AI create pipeline my_new_pipeline --router
+```
+
+### 2. Version
+
+Show the installed version of Moon AI.
+
+```shell
+Moon AI version [OPTIONS]
+```
+
+- `--tools`: (Optional) Show the installed version of Moon AI tools
+
+Example:
+```shell
+Moon AI version
+Moon AI version --tools
+```
+
+### 3. Train
+
+Train the squad for a specified number of iterations.
+
+```shell
+Moon AI train [OPTIONS]
+```
+
+- `-n, --n_iterations INTEGER`: Number of iterations to train the squad (default: 5)
+- `-f, --filename TEXT`: Path to a custom file for training (default: "trained_agents_data.pkl")
+
+Example:
+```shell
+Moon AI train -n 10 -f my_training_data.pkl
+```
+
+### 4. Replay
+
+Replay the squad execution from a specific mission.
+
+```shell
+Moon AI replay [OPTIONS]
+```
+
+- `-t, --mission_id TEXT`: Replay the squad from this mission ID, including all subsequent missions
+
+Example:
+```shell    
+Moon AI replay -t mission_123456
+```
+
+### 5. Log-missions-outputs
+
+Retrieve your latest squad.kickoff() mission outputs.
+
+```shell
+Moon AI log-missions-outputs
+```
+
+### 6. Reset-memories
+
+Reset the squad memories (long, short, entity, latest_squad_kickoff_outputs).
+
+```shell
+Moon AI reset-memories [OPTIONS]
+```
+
+- `-l, --long`: Reset LONG TERM memory
+- `-s, --short`: Reset SHORT TERM memory
+- `-e, --entities`: Reset ENTITIES memory
+- `-k, --kickoff-outputs`: Reset LATEST KICKOFF MISSION OUTPUTS
+- `-a, --all`: Reset ALL memories
+
+Example:
+```shell
+Moon AI reset-memories --long --short
+Moon AI reset-memories --all
+```
+
+### 7. Test
+
+Test the squad and evaluate the results.
+
+```shell
+Moon AI test [OPTIONS]
+```
+
+- `-n, --n_iterations INTEGER`: Number of iterations to test the squad (default: 3)
+- `-m, --model TEXT`: LLM Model to run the tests on the Squad (default: "gpt-4o-mini")
+
+Example:
+```shell
+Moon AI test -n 5 -m gpt-3.5-turbo
+```
+
+### 8. Run
+
+Run the squad.
+
+```shell
+Moon AI run
+```
+<Note>
+Make sure to run these commands from the directory where your Moon AI project is set up. 
+Some commands may require additional configuration or setup within your project structure.
+</Note>
+
+
+### 9. API Keys
+
+When running ```Moon AI create squad``` command, the CLI will first show you the top 5 most common LLM providers and ask you to select one.
+
+Once you've selected an LLM provider, you will be prompted for API keys.
+
+#### Initial API key providers
+
+The CLI will initially prompt for API keys for the following services:
+
+* OpenAI
+* Groq
+* Anthropic
+* Google Gemini
+
+When you select a provider, the CLI will prompt you to enter your API key.
+
+#### Other Options
+
+If you select option 6, you will be able to select from a list of LiteLLM supported providers.
+
+When you select a provider, the CLI will prompt you to enter the Key name and the API key.
+
+See the following link for each provider's key name:
+
+* [LiteLLM Providers](https://docs.litellm.ai/docs/providers)
+
+
+

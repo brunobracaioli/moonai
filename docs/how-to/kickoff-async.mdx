@@ -1,0 +1,119 @@
+---
+title: Kickoff Squad Asynchronously
+description: Kickoff a Squad Asynchronously
+icon: rocket-launch
+---
+
+## Introduction
+
+Moonai provides the ability to kickoff a squad asynchronously, allowing you to start the squad execution in a non-blocking manner. 
+This feature is particularly useful when you want to run multiple squads concurrently or when you need to perform other missions while the squad is executing.
+
+## Asynchronous Squad Execution
+
+To kickoff a squad asynchronously, use the `kickoff_async()` method. This method initiates the squad execution in a separate thread, allowing the main thread to continue executing other missions.
+
+### Method Signature
+
+```python Code
+def kickoff_async(self, inputs: dict) -> SquadOutput:
+```
+
+### Parameters
+
+- `inputs` (dict): A dictionary containing the input data required for the missions.
+
+### Returns
+
+- `SquadOutput`: An object representing the result of the squad execution.
+
+## Potential Use Cases
+
+- **Parallel Content Generation**: Kickoff multiple independent squads asynchronously, each responsible for generating content on different topics. For example, one squad might research and draft an article on AI trends, while another squad generates social media posts about a new product launch. Each squad operates independently, allowing content production to scale efficiently.
+
+- **Concurrent Market Research missions**: Launch multiple squads asynchronously to conduct market research in parallel. One squad might analyze industry trends, while another examines competitor strategies, and yet another evaluates consumer sentiment. Each squad independently completes its mission, enabling faster and more comprehensive insights.
+
+- **Independent Travel Planning Modules**: Execute separate squads to independently plan different aspects of a trip. One squad might handle flight options, another handles accommodation, and a third plans activities. Each squad works asynchronously, allowing various components of the trip to be planned simultaneously and independently for faster results.
+
+## Example: Single Asynchronous Squad Execution
+
+Here's an example of how to kickoff a squad asynchronously using asyncio and awaiting the result:
+
+```python Code
+import asyncio
+from moonai import Squad, Agent, Mission
+
+# Create an agent with code execution enabled
+coding_agent = Agent(
+    role="Python Data Analyst",
+    goal="Analyze data and provide insights using Python",
+    backstory="You are an experienced data analyst with strong Python skills.",
+    allow_code_execution=True
+)
+
+# Create a mission that requires code execution
+data_analysis_mission = Mission(
+    description="Analyze the given dataset and calculate the average age of participants. Ages: {ages}",
+    agent=coding_agent
+)
+
+# Create a squad and add the mission
+analysis_squad = Squad(
+    agents=[coding_agent],
+    missions=[data_analysis_mission]
+)
+
+# Async function to kickoff the squad asynchronously
+async def async_squad_execution():
+    result = await analysis_squad.kickoff_async(inputs={"ages": [25, 30, 35, 40, 45]})
+    print("Squad Result:", result)
+
+# Run the async function
+asyncio.run(async_squad_execution())
+```
+
+## Example: Multiple Asynchronous Squad Executions
+
+In this example, we'll show how to kickoff multiple squads asynchronously and wait for all of them to complete using `asyncio.gather()`:
+
+```python Code
+import asyncio
+from moonai import Squad, Agent, Mission
+
+# Create an agent with code execution enabled
+coding_agent = Agent(
+    role="Python Data Analyst",
+    goal="Analyze data and provide insights using Python",
+    backstory="You are an experienced data analyst with strong Python skills.",
+    allow_code_execution=True
+)
+
+# Create missions that require code execution
+mission_1 = Mission(
+    description="Analyze the first dataset and calculate the average age of participants. Ages: {ages}",
+    agent=coding_agent
+)
+
+mission_2 = Mission(
+    description="Analyze the second dataset and calculate the average age of participants. Ages: {ages}",
+    agent=coding_agent
+)
+
+# Create two squads and add missions
+squad_1 = Squad(agents=[coding_agent], missions=[mission_1])
+squad_2 = Squad(agents=[coding_agent], missions=[mission_2])
+
+# Async function to kickoff multiple squads asynchronously and wait for all to finish
+async def async_multiple_squads():
+    result_1 = squad_1.kickoff_async(inputs={"ages": [25, 30, 35, 40, 45]})
+    result_2 = squad_2.kickoff_async(inputs={"ages": [20, 22, 24, 28, 30]})
+
+    # Wait for both squads to finish
+    results = await asyncio.gather(result_1, result_2)
+
+    for i, result in enumerate(results, 1):
+        print(f"Squad {i} Result:", result)
+
+# Run the async function
+asyncio.run(async_multiple_squads())
+```

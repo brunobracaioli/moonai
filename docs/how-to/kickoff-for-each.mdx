@@ -1,0 +1,54 @@
+---
+title: Kickoff Squad for Each
+description: Kickoff Squad for Each Item in a List
+icon: at
+---
+
+## Introduction
+
+Moonai provides the ability to kickoff a squad for each item in a list, allowing you to execute the squad for each item in the list. 
+This feature is particularly useful when you need to perform the same set of missions for multiple items.
+
+## Kicking Off a Squad for Each Item
+
+To kickoff a squad for each item in a list, use the `kickoff_for_each()` method. 
+This method executes the squad for each item in the list, allowing you to process multiple items efficiently.
+
+Here's an example of how to kickoff a squad for each item in a list:
+
+```python Code
+from moonai import Squad, Agent, Mission
+
+# Create an agent with code execution enabled
+coding_agent = Agent(
+    role="Python Data Analyst",
+    goal="Analyze data and provide insights using Python",
+    backstory="You are an experienced data analyst with strong Python skills.",
+    allow_code_execution=True
+)
+
+# Create a mission that requires code execution
+data_analysis_mission = Mission(
+    description="Analyze the given dataset and calculate the average age of participants. Ages: {ages}",
+    agent=coding_agent,
+    expected_output="The average age calculated from the dataset"
+)
+
+# Create a squad and add the mission
+analysis_squad = Squad(
+    agents=[coding_agent],
+    missions=[data_analysis_mission],
+    verbose=True,
+    memory=False,
+    respect_context_window=True  # enable by default
+)
+
+datasets = [
+  { "ages": [25, 30, 35, 40, 45] },
+  { "ages": [20, 25, 30, 35, 40] },
+  { "ages": [30, 35, 40, 45, 50] }
+]
+
+# Execute the squad
+result = analysis_squad.kickoff_for_each(inputs=datasets)
+```

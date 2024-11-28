@@ -1,0 +1,80 @@
+---
+title: Replay missions from Latest Squad Kickoff
+description: Replay missions from the latest squad.kickoff(...)
+icon: arrow-right
+---
+
+## Introduction
+
+Moonai provides the ability to replay from a mission specified from the latest squad kickoff. This feature is particularly useful when you've finished a kickoff and may want to retry certain missions or don't need to refetch data over and your agents already have the context saved from the kickoff execution so you just need to replay the missions you want to.
+
+<Note>
+    You must run `squad.kickoff()` before you can replay a mission. 
+    Currently, only the latest kickoff is supported, so if you use `kickoff_for_each`, it will only allow you to replay from the most recent squad run.
+</Note>
+
+Here's an example of how to replay from a mission:
+
+### Replaying from Specific Mission Using the CLI
+
+To use the replay feature, follow these steps:
+
+<Steps>
+   <Step title="Open your terminal or command prompt.">
+   </Step>
+   <Step title="Navigate to the directory where your Moonai project is located.">
+   </Step>
+   <Step title="Run the following commands:">
+      To view the latest kickoff mission_ids use:
+
+      ```shell
+      moonai log-missions-outputs
+      ```
+
+      Once you have your `mission_id` to replay, use:
+
+      ```shell
+      moonai replay -t <mission_id>
+      ```
+   </Step>
+</Steps>
+
+<Note>
+    Ensure `moonai` is installed and configured correctly in your development environment.
+</Note>
+
+### Replaying from a Mission Programmatically
+
+To replay from a mission programmatically, use the following steps:
+
+<Steps>
+   <Step title="Specify the `mission_id` and input parameters for the replay process.">
+      Specify the `mission_id` and input parameters for the replay process.
+   </Step>
+   <Step title="Execute the replay command within a try-except block to handle potential errors.">
+      Execute the replay command within a try-except block to handle potential errors.
+      <CodeGroup>
+          ```python Code
+            def replay():
+            """
+            Replay the squad execution from a specific mission.
+            """
+            mission_id = '<mission_id>'
+            inputs = {"topic": "Moonai Training"}  # This is optional; you can pass in the inputs you want to replay; otherwise, it uses the previous kickoff's inputs.
+            try:
+                YourSquadName_Squad().squad().replay(mission_id=mission_id, inputs=inputs)
+
+            except subprocess.CalledProcessError as e:
+                raise Exception(f"An error occurred while replaying the squad: {e}")
+
+            except Exception as e:
+                raise Exception(f"An unexpected error occurred: {e}")
+            ```
+      </CodeGroup>
+   </Step>
+</Steps>
+
+## Conclusion
+
+With the above enhancements and detailed functionality, replaying specific missions in Moonai has been made more efficient and robust. 
+Ensure you follow the commands and steps precisely to make the most of these features.

@@ -1,0 +1,100 @@
+---
+title: Meta Metrics
+description: The `MetaMetricsTool` fetches and analyzes metrics from active Meta (Facebook) Ads campaigns.
+icon: analytics
+---
+
+# `MetaMetricsTool`
+<Note>
+    We are still working on improving tools, so there might be unexpected behavior or changes in the future.
+</Note>
+
+## Description
+The `MetaMetricsTool` is a powerful component within the `moonai_tools` package, designed to fetch and analyze metrics from active Meta (Facebook) Ads campaigns. It provides comprehensive insights including spend, CPC, CTR, impressions, and more, making it invaluable for monitoring and analyzing ad performance across multiple campaigns. This tool supports customizable analysis periods and aggregates data to deliver both detailed reports and summary statistics.
+
+## Installation
+To utilize the functionalities of the `MetaMetricsTool`, install the `moonai_tools` package:
+
+```shell
+pip install 'moonai.moonai_tools'
+```
+
+# Prerequisites
+Before using the MetaMetricsTool, ensure you have set the following environment variables with your Meta Ads credentials:
+
+access_token: Your Meta access token.
+app_secret: Your Meta app secret.
+app_id: Your Meta app ID.
+ad_account_id: Your Meta ad account ID.
+
+You can set these variables in your environment or include them in a .env file.
+
+# Usage Example
+To get started with the MetaMetricsTool:
+
+```python
+from mooai.moonai_tools import MetaMetricsTool
+
+# Initialize the tool with the default 7-day analysis period
+meta_metrics_tool = MetaMetricsTool()
+
+# OR
+
+# Initialize the tool with a specific number of days to analyze, e.g., 30 days
+meta_metrics_tool = MetaMetricsTool()
+
+# Execute the tool to fetch and analyze metrics
+result = meta_metrics_tool._run(days=30)
+
+# Output the result
+print(result)
+```
+# Arguments
+days: The number of days to analyze metrics for. This parameter is optional and defaults to 7 if not specified.
+
+# Output Format
+The MetaMetricsTool returns a dictionary containing the following keys:
+
+report: A formatted text report summarizing the metrics for each campaign.
+data: Raw campaign metrics data.
+totals: Aggregated statistics across all analyzed campaigns.
+
+# Example Output
+
+```json
+{
+    "report": "=== META ADS METRICS (2024-04-20 to 2024-04-27) ===\n\n📊 Campaign: Spring Sale\n🆔 ID: 1234567890\n🎯 Objective: CONVERSIONS\n💰 Daily Budget: R$ 500.00\n💸 Total Spend: R$ 3500.00\n🎯 CPC: R$ 2.50\n📈 CTR: 1.75%\n📊 CPM: R$ 25.00\n💲 CPA: R$ 15.00\n🔄 Frequency: 1.5\n👥 Range: 100,000\n👀 Impressions: 150,000\n--------------------------------------------------\n\n=== GENERAL SUMMARY ===\n📊 Total Campaigns: 1\n💰 Total Daily Budget: R$ 500.00\n💸 Total Spend: R$ 3500.00\n👥 Total Range: 100,000\n👀 Total Impressions: 150,000\n📈 Average CTR: 1.75%\n🎯 Average CPC: R$ 2.50\n💲 Average CPA: R$ 15.00\n",
+    "data": [
+        {
+            "name": "Spring Sale",
+            "id": "1234567890",
+            "objective": "CONVERSIONS",
+            "budget": 500.00,
+            "spent": 3500.00,
+            "cpc": 2.50,
+            "ctr": 1.75,
+            "cpm": 25.00,
+            "cpa": 15.00,
+            "frequency": 1.5,
+            "range": 100000,
+            "impressions": 150000
+        }
+    ],
+    "totals": {
+        "campaigns": 1,
+        "budget_total": 500.00,
+        "total_spend": 3500.00,
+        "total_range": 100000,
+        "total_impressions": 150000,
+        "ctr_average": 1.75,
+        "cpc_average": 2.50,
+        "cpa_average": 15.00
+    }
+}
+```
+
+## Error Handling
+If the tool encounters any issues while fetching or processing the metrics, it will return an error message detailing the problem. Common errors include missing environment variables or issues with the Meta Ads API.
+
+## Note:
+Ensure that your Meta Ads credentials are kept secure and not exposed in your codebase or version control systems.

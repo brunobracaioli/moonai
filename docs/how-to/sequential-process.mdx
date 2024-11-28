@@ -1,0 +1,127 @@
+---
+title: Sequential Processes
+description: A comprehensive guide to utilizing the sequential processes for mission execution in Moonai projects.
+icon: forward
+---
+
+## Introduction
+
+Moonai offers a flexible framework for executing missions in a structured manner, supporting both sequential and hierarchical processes. 
+This guide outlines how to effectively implement these processes to ensure efficient mission execution and project completion.
+
+## Sequential Process Overview
+
+The sequential process ensures missions are executed one after the other, following a linear progression. 
+This approach is ideal for projects requiring missions to be completed in a specific order.
+
+### Key Features
+
+- **Linear Mission Flow**: Ensures orderly progression by handling missions in a predetermined sequence.
+- **Simplicity**: Best suited for projects with clear, step-by-step missions.
+- **Easy Monitoring**: Facilitates easy tracking of mission completion and project progress.
+
+## Implementing the Sequential Process
+
+To use the sequential process, assemble your squad and define missions in the order they need to be executed.
+
+```python Code
+from moonai import Squad, Process, Agent, Mission, MissionOutput, SquadOutput
+
+# Define your agents
+researcher = Agent(
+  role='Researcher',
+  goal='Conduct foundational research',
+  backstory='An experienced researcher with a passion for uncovering insights'
+)
+analyst = Agent(
+  role='Data Analyst',
+  goal='Analyze research findings',
+  backstory='A meticulous analyst with a knack for uncovering patterns'
+)
+writer = Agent(
+  role='Writer',
+  goal='Draft the final report',
+  backstory='A skilled writer with a talent for crafting compelling narratives'
+)
+
+# Define your missions
+research_mission = Mission(
+  description='Gather relevant data...', 
+  agent=researcher, 
+  expected_output='Raw Data'
+)
+analysis_mission = Mission(
+  description='Analyze the data...', 
+  agent=analyst, 
+  expected_output='Data Insights'
+)
+writing_mission = Mission(
+  description='Compose the report...', 
+  agent=writer, 
+  expected_output='Final Report'
+)
+
+# Form the squad with a sequential process
+report_squad = Squad(
+  agents=[researcher, analyst, writer],
+  missions=[research_mission, analysis_mission, writing_mission],
+  process=Process.sequential
+)
+
+# Execute the squad
+result = report_squad.kickoff()
+
+# Accessing the type-safe output
+mission_output: MissionOutput = result.missions[0].output
+squad_output: SquadOutput = result.output
+```
+
+### Note:
+
+Each mission in a sequential process **must** have an agent assigned. Ensure that every `Mission` includes an `agent` parameter.
+
+### Workflow in Action
+
+1. **Initial Mission**: In a sequential process, the first agent completes their mission and signals completion.
+2. **Subsequent missions**: Agents pick up their missions based on the process type, with outcomes of preceding missions or directives guiding their execution.
+3. **Completion**: The process concludes once the final mission is executed, leading to project completion.
+
+## Advanced Features
+
+### Mission Delegation
+
+In sequential processes, if an agent has `allow_delegation` set to `True`, they can delegate missions to other agents in the squad. 
+This feature is automatically set up when there are multiple agents in the squad.
+
+### Asynchronous Execution
+
+missions can be executed asynchronously, allowing for parallel processing when appropriate. 
+To create an asynchronous mission, set `async_execution=True` when defining the mission.
+
+### Memory and Caching
+
+Moonai supports both memory and caching features:
+
+- **Memory**: Enable by setting `memory=True` when creating the Squad. This allows agents to retain information across missions.
+- **Caching**: By default, caching is enabled. Set `cache=False` to disable it.
+
+### Callbacks
+
+You can set callbacks at both the mission and step level:
+
+- `mission_callback`: Executed after each mission completion.
+- `step_callback`: Executed after each step in an agent's execution.
+
+### Usage Metrics
+
+Moonai tracks token usage across all missions and agents. You can access these metrics after execution.
+
+## Best Practices for Sequential Processes
+
+1. **Order Matters**: Arrange missions in a logical sequence where each mission builds upon the previous one.
+2. **Clear Mission Descriptions**: Provide detailed descriptions for each mission to guide the agents effectively.
+3. **Appropriate Agent Selection**: Match agents' skills and roles to the requirements of each mission.
+4. **Use Context**: Leverage the context from previous missions to inform subsequent ones.
+
+This updated documentation ensures that details accurately reflect the latest changes in the codebase and clearly describes how to leverage new features and configurations. 
+The content is kept simple and direct to ensure easy understanding.

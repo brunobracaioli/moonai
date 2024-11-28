@@ -1,6 +1,7 @@
 <div align="center">
 
-![Logo of Moon AI](./moonai_logo.png)
+![Logo of Moon AI](https://raw.githubusercontent.com/brunobracaioli/moonai/main/moonai_logo.png)
+
 
 # **Moon AI**
 

@@ -22,10 +22,10 @@ class MetaMetricsTool(BaseTool):
     def _run(self, **kwargs: Any) -> str:
         try:
             days = kwargs.get('days', 7)
-            access_token = os.getenv("access_token")
-            app_secret = os.getenv("app_secret")
-            app_id = os.getenv("app_id")
-            ad_account_id = os.getenv("ad_account_id")
+            access_token = os.getenv("ACCESS_TOKEN")
+            app_secret = os.getenv("APP_SECRET")
+            app_id = os.getenv("APP_ID")
+            ad_account_id = os.getenv("AD_ACCOUNT_ID")
 
             if not all([access_token, app_secret, app_id, ad_account_id]):
                 return "Error: Facebook Ads credentials not found"

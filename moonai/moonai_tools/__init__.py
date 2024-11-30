@@ -43,6 +43,9 @@ from .tools import (
     YoutubeChannelSearchTool,
     YoutubeVideoSearchTool,
     MySQLSearchTool,
-    MetaMetricsTool
+    MetaMetricsTool,
+    MetaUpdateCampaignBudgetTool,
+    MetaUpdateCampaignStatusTool,
+    MetaCreateSalesCampaignTool
 )
 from .tools.base_tool import BaseTool, Tool, tool

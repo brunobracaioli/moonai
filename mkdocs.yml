@@ -1,6 +1,6 @@
 site_name: moonai
 site_author: bracaiolitech
-site_description: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, moonai empowers agents to work together seamlessly, tackling complex missions.
+site_description: State-of-the-art platform designed to coordinate role-playing autonomous AI agents. Moon AI enables agents to collaborate effortlessly, combining their strengths to address intricate challenges with precision and efficiency.
 repo_name: moonai
 repo_url: https://github.com/brunobracaioli/moonai
 site_url: https://docs.moonai.dev
@@ -120,8 +120,8 @@ theme:
 nav:
   - Home: '/'
   - Getting Started:
-    - Installing moonai: 'getting-started/Installing-moonai.md'
-    - Starting a new moonai project: 'getting-started/Start-a-New-moonai-Project-Template-Method.md'
+    - Installing MoonAI: 'getting-started/Installing-MoonAI.md'
+    - Starting a new MoonAI project: 'getting-started/Start-a-New-MoonAI-Project-Template-Method.md'
   - Core Concepts:
     - Agents: 'core-concepts/Agents.md'
     - Missions: 'core-concepts/Missions.md'
@@ -186,13 +186,13 @@ nav:
     - Youtube Channel RAG Search: 'tools/YoutubeChannelSearchTool.md'
     - Youtube Video RAG Search: 'tools/YoutubeVideoSearchTool.md'
   - Examples:
-    - Trip Planner Squad: https://github.com/brunobracaioli/moonai-examples/tree/main/trip_planner"
-    - Create Instagram Post: https://github.com/brunobracaioli/moonai-examples/tree/main/instagram_post"
-    - Stock Analysis: https://github.com/brunobracaioli/moonai-examples/tree/main/stock_analysis"
-    - Game Generator: https://github.com/brunobracaioli/moonai-examples/tree/main/game-builder-squad"
-    - Drafting emails with LangGraph: https://github.com/brunobracaioli/moonai-examples/tree/main/moonai-LangGraph"
-    - Landing Page Generator: https://github.com/brunobracaioli/moonai-examples/tree/main/landing_page_generator"
-    - Prepare for meetings: https://github.com/brunobracaioli/moonai-examples/tree/main/prep-for-a-meeting"
+    - Trip Planner Squad: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/trip_planner"
+    - Create Instagram Post: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/instagram_post"
+    - Stock Analysis: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/stock_analysis"
+    - Game Generator: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/game-builder-squad"
+    - Drafting emails with LangGraph: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/moonai-LangGraph"
+    - Landing Page Generator: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/landing_page_generator"
+    - Prepare for meetings: https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/prep-for-a-meeting"
   - Telemetry: 'telemetry/Telemetry.md'
   - Change Log: 'https://github.com/brunobracaioli/moonai/releases'
 
@@ -207,9 +207,12 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-N3Q505TMQ6
+    property: G-LP3LVGMXT9
   social:
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/moonai
     - icon: fontawesome/brands/github
       link: https://github.com/brunobracaioli/moonai
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/moonai.dev/
+      

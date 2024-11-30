@@ -27,6 +27,11 @@ from .pdf_search_tool.pdf_search_tool import PDFSearchTool
 from .pg_seach_tool.pg_search_tool import PGSearchTool
 from .rag.rag_tool import RagTool
 from .meta_metrics_tool.meta_metrics_tool import MetaMetricsTool
+from .meta_update_campaign_budget_tool.meta_update_campaign_budget_tool import MetaUpdateCampaignBudgetTool
+from .meta_update_campaign_status_tool.meta_update_campaign_status_tool import MetaUpdateCampaignStatusTool
+from .meta_create_sales_campaign_tool.meta_create_sales_campaign_tool import MetaCreateSalesCampaignTool
+
+
 from .scrape_element_from_website.scrape_element_from_website import (
     ScrapeElementFromWebsiteTool
 )

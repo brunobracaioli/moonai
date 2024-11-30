@@ -5,11 +5,11 @@
 
 # **Moon AI**
 
-🤖 **Moon AI**: Cutting-edge framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, Moon AI empowers agents to work together seamlessly, tackling complex missions.
+🤖 **Moon AI**: State-of-the-art platform designed to coordinate role-playing autonomous AI agents. Moon AI enables agents to collaborate effortlessly, combining their strengths to address intricate challenges with precision and efficiency.
 
 <h3>
 
-[Homepage](https://www.moonai.dev/) | [Documentation](https://docs.moonai.dev/) | [Chat with Docs](https://chatgpt.com/g/g-6748df2d1f508191873ca87cf954322a-moon-ai-assistant) | [Examples](https://github.com/brunobracaioli/moonai-examples) | [Discourse](https://community.moonai.dev)
+[Homepage](https://www.moonai.dev/) | [Documentation](https://docs.moonai.dev/) | [Chat with Docs](https://chatgpt.com/g/g-6748df2d1f508191873ca87cf954322a-moon-ai-assistant) | [Examples](https://github.com/brunobracaioli/moonai/moonai-examples) | [Discourse](https://community.moonai.dev)
 
 </h3>
 
@@ -20,7 +20,7 @@
 
 ## Table of contents
 
-- [Why moonai?](#why-moonai)
+- [Why Moon AI?](#why-moonai)
 - [Getting Started](#getting-started)
 - [Key Features](#key-features)
 - [Examples](#examples)
@@ -34,7 +34,7 @@
 - [Telemetry](#telemetry)
 - [License](#license)
 
-## Why moonai?
+## Why Moon AI?
 
 The power of AI collaboration has too much to offer.
 Moon AI is designed to enable AI agents to assume roles, share goals, and operate in a cohesive unit - much like a well-oiled squad. Whether you're building a smart assistant platform, an automated customer service ensemble, or a multi-agent research team, Moon AI provides the backbone for sophisticated multi-agent interactions.
@@ -277,12 +277,12 @@ In addition to the sequential process, you can use the hierarchical process, whi
 
 ## Examples
 
-You can test different real life examples of AI squads in the [moonai-examples repo](https://github.com/brunobracaioli/moonai-examples?tab=readme-ov-file):
+You can test different real life examples of AI squads in the [moonai-examples repo](https://github.com/brunobracaioli/moonai/moonai-examples?tab=readme-ov-file):
 
-- [Landing Page Generator](https://github.com/brunobracaioli/moonai-examples/tree/main/landing_page_generator)
+- [Landing Page Generator](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/landing_page_generator)
 - [Having Human input on the execution](https://docs.moonai.dev/how-to/Human-Input-on-Execution)
-- [Trip Planner](https://github.com/brunobracaioli/moonai-examples/tree/main/trip_planner)
-- [Stock Analysis](https://github.com/brunobracaioli/moonai-examples/tree/main/stock_analysis)
+- [Trip Planner](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/trip_planner)
+- [Stock Analysis](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/stock_analysis)
 
 ### Quick Tutorial
 
@@ -290,19 +290,19 @@ You can test different real life examples of AI squads in the [moonai-examples r
 
 ### Write Job Descriptions
 
-[Check out code for this example](https://github.com/brunobracaioli/moonai-examples/tree/main/job-posting) or watch a video below:
+[Check out code for this example](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/job-posting) or watch a video below:
 
 [![Jobs postings](https://img.youtube.com/vi/u98wEMz-9to/maxresdefault.jpg)](https://www.youtube.com/watch?v=u98wEMz-9to "Jobs postings")
 
 ### Trip Planner
 
-[Check out code for this example](https://github.com/brunobracaioli/moonai-examples/tree/main/trip_planner) or watch a video below:
+[Check out code for this example](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/trip_planner) or watch a video below:
 
 [![Trip Planner](https://img.youtube.com/vi/xis7rWp-hjs/maxresdefault.jpg)](https://www.youtube.com/watch?v=xis7rWp-hjs "Trip Planner")
 
 ### Stock Analysis
 
-[Check out code for this example](https://github.com/brunobracaioli/moonai-examples/tree/main/stock_analysis) or watch a video below:
+[Check out code for this example](https://github.com/brunobracaioli/moonai/moonai-examples/tree/main/stock_analysis) or watch a video below:
 
 [![Stock Analysis](https://img.youtube.com/vi/e0Uj4yWdaAg/maxresdefault.jpg)](https://www.youtube.com/watch?v=e0Uj4yWdaAg "Stock Analysis")
 
@@ -410,10 +410,10 @@ Moon AI is released under the [MIT License](https://github.com/brunobracaioli/mo
 
 ## Frequently Asked Questions (FAQ)
 
-### Q: What is moonai?
+### Q: What is Moon AI?
 A: Moon AI aiis a cutting-edge framework for orchestrating role-playing, autonomous AI agents. It enables agents to work together seamlessly, tackling complex missions through collaborative intelligence.
 
-### Q: How do I install moonai?
+### Q: How do I install Moon AI?
 A: You can install Moon AI aiusing pip:
 ```shell
 pip install moonai
@@ -426,7 +426,7 @@ pip install 'moonai.moonai_tools'
 ### Q: Can I use Moon AI with local models?
 A: Yes, Moon AI supports various LLMs, including local models. You can configure your agents to use local models via tools like Ollama & LM Studio. Check the [LLM Connections documentation](https://docs.moonai.dev/how-to/LLM-Connections/) for more details.
 
-### Q: What are the key features of moonai?
+### Q: What are the key features of Moon AI?
 A: Key features include role-based agent design, autonomous inter-agent delegation, flexible mission management, process-driven execution, output saving as files, and compatibility with both open-source and proprietary models.
 
 ### Q: How does Moon AI compare to other AI orchestration tools?
@@ -439,10 +439,10 @@ A: Yes, Moon AI is open-source and welcomes contributions from the community.
 A: Moon AI uses anonymous telemetry to collect usage data for improvement purposes. No sensitive data (like prompts, mission descriptions, or API calls) is collected. Users can opt-in to share more detailed data by setting `share_squad=True` on their Squads.
 
 ### Q: Where can I find examples of Moon AI in action?
-A: You can find various real-life examples in the [moonai-examples repository](https://github.com/brunobracaioli/moonai-examples), including trip planners, stock analysis tools, and more.
+A: You can find various real-life examples in the [moonai-examples repository](https://github.com/brunobracaioli/moonai/moonai-examples), including trip planners, stock analysis tools, and more.
 
-### Q: How can I contribute to moonai?
+### Q: How can I contribute to Moon AI?
 A: Contributions are welcome! You can fork the repository, create a new branch for your feature, add your improvement, and send a pull request. Check the Contribution section in the README for more details.
 
-# moonai
+# Moon AI
 Moon AI
